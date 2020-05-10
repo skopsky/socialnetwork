@@ -2,14 +2,8 @@ import React from "react";
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-
-
-
-
-
 function MyPosts(props) {
-
-    let postElements = props.postData.map(post => <Post message={post.message} likecount={post.likesCount}/>)
+    const postElements = props.postData.map(post => <Post message={post.message} likecount={post.likesCount}/>)
 
     return (
         <div>
@@ -21,12 +15,9 @@ function MyPosts(props) {
                     </div>
                 </div>
                 <div className={classes.posts}>
-
                     {postElements}
-
                 </div>
             </div>
-
         </div>
     );
 }

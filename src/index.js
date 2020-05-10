@@ -5,9 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import state from "./redux/state"
 
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App state={state}/>
