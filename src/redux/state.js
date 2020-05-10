@@ -1,13 +1,12 @@
-let state = {
+const state = {
 
     ProfilePage  : {
         postData: [
             {id: 1, message: 'Hi,how are u?', likesCount: 13},
-            {id: 2, message: 'It is my first page', likesCount: 14},
-            {id: 3, message: 'It is my first page', likesCount: 21},
-            {id: 4, message: 'It is my first page', likesCount: 34},
-            {id: 5, message: 'It is my first page', likesCount: 11},
-
+            {id: 2, message: 'It is1 my first page', likesCount: 14},
+            {id: 3, message: 'It is my 2first page', likesCount: 21},
+            {id: 4, message: 'It is my 3first page', likesCount: 34},
+            {id: 5, message: 'It is my 4first page', likesCount: 11},
         ]
     },
 
@@ -25,8 +24,6 @@ let state = {
             {id: 4, message: 'Poka'}
         ]
     },
-
-
 }
 
 export default state;
