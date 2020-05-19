@@ -15,9 +15,10 @@ function App(props) {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path ="/profile" render={()=> <Profile state={props.state.ProfilePage}
-                    addPost={props.addPost}/>}/>
-                    <Route path ="/dialogs" render={()=> <Dialogs state={props.state.DialogsPage}/>}/>
+                    <Route path="/profile" render={() => <Profile profilePage={props.state.ProfilePage}
+                                                                  updatePostElement={props.updatePostElement}
+                                                                  addPost={props.addPost}/>}/>
+                    <Route path="/dialogs" render={() => <Dialogs state={props.state.DialogsPage}/>}/>
                 </div>
             </div>
         </BrowserRouter>
