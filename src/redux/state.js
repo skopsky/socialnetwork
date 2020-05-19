@@ -1,4 +1,8 @@
-import {rerenderEntireTree} from "../render";
+
+
+let rerenderEntireTree =() => {
+
+}
 
 const state = {
 
@@ -46,6 +50,10 @@ export let updatePostElement = (newText) => {
     state.ProfilePage.newPostText = newText;
     rerenderEntireTree(state);
 
+}
+
+export let subscribe =(observer)=>{
+    rerenderEntireTree = observer;
 }
 
 
