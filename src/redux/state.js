@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let store = {
 
@@ -27,8 +32,10 @@ let store = {
                 {id: 2, message: '3221212122'},
                 {id: 3, message: 'Privet'},
                 {id: 4, message: 'Poka'}
-            ]
+            ],
+            newMessageText: "it-kamasutra",
         },
+
     },
     _callSubscriber(){
 
@@ -72,6 +79,45 @@ let store = {
                 this._callSubscriber(this._state);
 
         }
+        else if (action.type === 'ADD-MESSAGE' ){
+            let newMessage = {
+                id:3,
+                message: this._state.DialogsPage.newMessageText,
+            };
+            this._state.DialogsPage.messagesData.push(newMessage);
+            this._state.DialogsPage.newMessageText = "";
+            this._callSubscriber(this._state);
+        }
+        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._state.DialogsPage.newMessageText = action.newMessageText;
+            this._callSubscriber(this._state);
+
+        }
+    }
+
+}
+
+export const addNewPostActionCreator = () =>{
+    return {
+        type: ADD_POST
+    }
+}
+export const updateNewPostTextActionCreator = (text) =>{
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText : text
+    }
+
+}
+export const addNewMessageActionCreator = () =>{
+    return {
+        type: ADD_MESSAGE
+    }
+}
+export const updateNewMessageTextActionCreator = (message) =>{
+    return {
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        newMessageText : message
     }
 
 }
