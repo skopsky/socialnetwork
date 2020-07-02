@@ -1,3 +1,7 @@
+import profilereducer from "./profile-reducer";
+import dialogsreducer from "./dialogs-reducer";
+import sidebarreducer from "./sidebar-reducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -18,8 +22,6 @@ let store = {
             ],
             newPostText: "it-kamasutra"
         },
-
-
         DialogsPage: {
             dialogsData: [
                 {id: 1, name: 'Ivan'},
@@ -35,6 +37,7 @@ let store = {
             ],
             newMessageText: "it-kamasutra",
         },
+        Sidebar: {},
 
     },
     _callSubscriber(){
@@ -64,36 +67,15 @@ let store = {
 
     },
     dispatch(action){
-        if (action.type === 'ADD-POST' ){
-                let newPost = {
-                    id: 5,
-                    message: this._state.ProfilePage.newPostText,
-                    likesCount: 0
-                };
-                this._state.ProfilePage.postData.push(newPost);
-                this._state.ProfilePage.newPostText = "";
-                this._callSubscriber(this._state);
-        }
-        else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-                this._state.ProfilePage.newPostText = action.newText;
-                this._callSubscriber(this._state);
+
+        this._state.ProfilePage = profilereducer(this._state.ProfilePage,action)
+        this._state.DialogsPage = dialogsreducer(this._state.DialogsPage,action)
+        this._state.Sidebar = sidebarreducer(this._state.Sidebar,action)
+
+        this._callSubscriber(this._state);
 
         }
-        else if (action.type === 'ADD-MESSAGE' ){
-            let newMessage = {
-                id:3,
-                message: this._state.DialogsPage.newMessageText,
-            };
-            this._state.DialogsPage.messagesData.push(newMessage);
-            this._state.DialogsPage.newMessageText = "";
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
-            this._state.DialogsPage.newMessageText = action.newMessageText;
-            this._callSubscriber(this._state);
 
-        }
-    }
 
 }
 

@@ -1,14 +1,16 @@
 import React from "react";
 import MyPosts from "./MyPosts/MyPosts";
 import Profileinfo from "./Profileinfo/Profileinfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 function Profile(props) {
+    debugger
     return (
         <div>
             <Profileinfo/>
-            <MyPosts postData={props.profilePage.postData}
-                     dispatch={props.dispatch}
-                     newPostText={props.profilePage.newPostText}
+            <MyPostsContainer
+                store={props.store}
+
             />
         </div>
     );

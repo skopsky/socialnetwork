@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addNewPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addNewPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/store";
 
 
 
@@ -11,18 +11,18 @@ function MyPosts(props) {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.dispatch(addNewPostActionCreator())
+        props.addPost();
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value
-        props.dispatch(updateNewPostTextActionCreator(text))
+    let updateNewPostText = () => {
+        let text = newPostElement.current.value;
+       props.updateNewPostText(text);
     }
     return (
         <div>
             <div className={classes.postsBlock}><h3>my posts</h3>
                 <div>
-                    <div><textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/></div>
+                    <div><textarea onChange={updateNewPostText} ref={newPostElement} value={props.newPostText}/></div>
                     <div>
                         <button onClick={addPost}>Add post</button>
                     </div>
