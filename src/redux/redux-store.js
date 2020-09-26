@@ -1,18 +1,23 @@
-import {combineReducers, createStore} from "redux";
-import profilereducer from "./profile-reducer";
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import profileReducer from "./profile-reducer";
 import dialogsreducer from "./dialogs-reducer";
 import sidebarreducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
+import authReducer from "./auth-reducer";
+import thinkMiddleware from "redux-thunk"
 
 let reducers = combineReducers({
-    ProfilePage: profilereducer,
+    ProfilePage: profileReducer,
     DialogsPage: dialogsreducer,
     Sidebar: sidebarreducer,
-    UsersPage: usersReducer
+    UsersPage: usersReducer,
+    auth: authReducer
 
 })
 
-let store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thinkMiddleware));
+
+window.store = store;
 
 
 export default store;

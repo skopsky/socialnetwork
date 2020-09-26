@@ -2,7 +2,8 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import DialogItem from "./Dialogitem/Dialogitem";
 import Message from "./Message/Message";
-import {addNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/store";
+import {addNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../oldStore/store";
+import {Redirect} from "react-router-dom";
 
 function Dialogs(props) {
     debugger
@@ -20,6 +21,8 @@ function Dialogs(props) {
         let messageText = newMessageBody.current.value
         props.updateNewMessageText(messageText)
     }
+
+    if (!props.isAuth) return <Redirect to={'/login'}/>;
 
     return (
         <div className={classes.dialogs}>
