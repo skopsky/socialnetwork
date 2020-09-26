@@ -29,10 +29,10 @@ let stores = {
                 {id: 1, name: 'Ivan'},
                 {id: 2, name: 'Dimon'},
                 {id: 3, name: 'John'},
-                {id: 4, name: 'Lox'}
+                {id: 4, name: 'Sergey'}
             ],
             messagesData: [
-                {id: 1, message: 'Pizda'},
+                {id: 1, message: 'How are you?'},
                 {id: 2, message: '3221212122'},
                 {id: 3, message: 'Privet'},
                 {id: 4, message: 'Poka'}
