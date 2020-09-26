@@ -93,7 +93,7 @@ export const followThunkCreator = (userId) => {
         dispatch(toggleFollowingProgressAC(true,userId));
         usersApi.follow(userId)
             .then(response => {
-                if (response.data.resultCode == 0) {
+                if (response.data.resultCode === 0) {
                     dispatch(followAC(userId));
                 }
                 dispatch(toggleFollowingProgressAC(false,userId));
@@ -105,7 +105,7 @@ export const unfollowThunkCreator = (userId) => {
         dispatch(toggleFollowingProgressAC(true,userId));
         usersApi.unfollow(userId)
             .then(response => {
-                if (response.data.resultCode == 0) {
+                if (response.data.resultCode === 0) {
                     dispatch(unfollowAC(userId));
                 }
                 dispatch(toggleFollowingProgressAC(false,userId));
