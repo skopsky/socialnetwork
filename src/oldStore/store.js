@@ -1,6 +1,7 @@
-import profilereducer from "./profile-reducer";
-import dialogsreducer from "./dialogs-reducer";
-import sidebarreducer from "./sidebar-reducer";
+/*
+import profileReducer from "../redux/profile-reducer";
+import dialogsreducer from "../redux/dialogs-reducer";
+import sidebarreducer from "../redux/sidebar-reducer";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -8,7 +9,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
-let store = {
+let stores = {
 
     _state : {
 
@@ -20,7 +21,8 @@ let store = {
                 {id: 4, message: 'It is my 3first page', likesCount: 34},
                 {id: 5, message: 'It is my 4first page', likesCount: 11},
             ],
-            newPostText: "it-kamasutra"
+            newPostText: "it-kamasutra",
+
         },
         DialogsPage: {
             dialogsData: [
@@ -68,7 +70,7 @@ let store = {
     },
     dispatch(action){
 
-        this._state.ProfilePage = profilereducer(this._state.ProfilePage,action)
+        this._state.ProfilePage = profileReducer(this._state.ProfilePage,action)
         this._state.DialogsPage = dialogsreducer(this._state.DialogsPage,action)
         this._state.Sidebar = sidebarreducer(this._state.Sidebar,action)
 
@@ -107,3 +109,4 @@ export const updateNewMessageTextActionCreator = (message) =>{
 
 window.store = store;
 export default store;
+*/

@@ -40,4 +40,9 @@ const dialogsreducer = (state = initialState, action) => {
     }
 }
 
+export const addNewMessageAC = () => ({type: ADD_MESSAGE, });
+export const updateNewMessageAC = (newMessageText) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText});
+
+
+
 export default dialogsreducer;
